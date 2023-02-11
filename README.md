@@ -32,12 +32,12 @@ This application allows client to connect to a TCP server, send commands to the 
 on your local terminal:
 1. clone the project
 ```shell
-$ git clone
+$ git clone git@github.com:Bkaraba/TCP-client_server_app.git
 
 ```
 2. navigate to the project directory
 ```
-$ cd project directory
+$ cd TCP-client_server_app
 ```
 
 3. - install [python3](https://docs.python.org/3/using/unix.html?highlight=install%20python3)
