@@ -79,5 +79,17 @@ output
 Assigned rank: 0
 Enter command: hello world
 ```
+``` client.py
+Assigned rank: 1
+Enter command: ¡Hola Mundo!
+```
+``` client.py
+Assigned rank: 2
+Enter command: Bonjour le monde!
+```
+``` client.py
+Assigned rank: 3
+Enter command: Hallo Welt!
+```
 
 
