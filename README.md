@@ -127,11 +127,12 @@ socket ('127.0.0.1', 33300) has rank number 0
 
 ## Known_issues
 
-
-
+- The server sends the command for execution to the immediate lower ranked client.I will be implementing a way to distribute commands to clients with lower load in the next iteration 
+- 
 
 ## Author
-Bernard Karaba
-bkaraba14@gmail.com
-[portfolio](bkaraba.github.io/portfolio)
+
+- Bernard Karaba
+- bkaraba14@gmail.com
+- [portfolio](bkaraba.github.io/portfolio)
 
