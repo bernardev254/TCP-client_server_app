@@ -7,6 +7,7 @@
 - [Getting_Started](#getting_Started)
 - [Known_issues](#known_issues)
 - [Author](#author)
+
 ## overview
 This application allows client to connect to a TCP server, send commands to the server and then the server distributes the commands to lower rank clients for execution
 
@@ -25,6 +26,9 @@ This application allows client to connect to a TCP server, send commands to the 
 - connects to the server
 - send commands to the server
 - excecutes commands from the server
+
+### implementation
+This project implements a server that exposes a tcp socket where clients can connect and send data.clients can send commands without blocking each other my using python multithreding to achieve concurrency and handle each client on separate thread.
 
 ## Getting_started
 
