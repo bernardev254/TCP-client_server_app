@@ -1,8 +1,6 @@
 import socket
 import threading
 
-flag = True
-
 def connect_to_server(host, port):
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((host, port))
@@ -46,7 +44,7 @@ def receive_and_execute_command(client_socket):
 def listen_for_commands(sock):
     while True:
         receive_and_execute_command(sock)
-        #break
+        
 
 def prompt_for_command(client_socket):
     command = input("Enter command: ")

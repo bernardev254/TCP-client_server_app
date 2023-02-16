@@ -56,16 +56,27 @@ $ python3 server.py 10
 ```
 output
 ```server.py
-Listening for 10 clients...
-Accepted client ('127.0.0.1', 43664)
-socket ('127.0.0.1', 43664) has rank number 0
-Accepted client ('127.0.0.1', 48324)
-socket ('127.0.0.1', 43664) has rank number 0
-socket ('127.0.0.1', 48324) has rank number 1
-Accepted client ('127.0.0.1', 54390)
-socket ('127.0.0.1', 43664) has rank number 0
-socket ('127.0.0.1', 48324) has rank number 1
-socket ('127.0.0.1', 54390) has rank number 2
+[STARTING] Listening for 10 clients...
+Accepted client ('127.0.0.1', 47036)
+socket ('127.0.0.1', 47036) has rank number 0
+Accepted client ('127.0.0.1', 49910)
+socket ('127.0.0.1', 47036) has rank number 0
+socket ('127.0.0.1', 49910) has rank number 1
+Accepted client ('127.0.0.1', 54500)
+socket ('127.0.0.1', 47036) has rank number 0
+socket ('127.0.0.1', 49910) has rank number 1
+socket ('127.0.0.1', 54500) has rank number 2
+Accepted client ('127.0.0.1', 34630)
+socket ('127.0.0.1', 47036) has rank number 0
+socket ('127.0.0.1', 49910) has rank number 1
+socket ('127.0.0.1', 54500) has rank number 2
+socket ('127.0.0.1', 34630) has rank number 3
+Accepted client ('127.0.0.1', 34640)
+socket ('127.0.0.1', 47036) has rank number 0
+socket ('127.0.0.1', 49910) has rank number 1
+socket ('127.0.0.1', 54500) has rank number 2
+socket ('127.0.0.1', 34630) has rank number 3
+socket ('127.0.0.1', 34640) has rank number 4
 ```
 
 5. run the client(s)
@@ -77,19 +88,50 @@ python3 client.py
 output
 ``` client.py
 Assigned rank: 0
-Enter command: hello world
+Enter command: print
 ```
 ``` client.py
 Assigned rank: 1
-Enter command: ¡Hola Mundo!
+Enter command: 
+[Processing]......
+[Received] received command print from server:
+[Executing] i am printing watch me print
+
+Enter command: 
+debug 
+Enter command: 
 ```
 ``` client.py
 Assigned rank: 2
-Enter command: Bonjour le monde!
+Enter command: 
+[Processing]......
+[Received] received command debug from server:
+[Executing] i am debuging watch me debug
+
+Enter command: 
 ```
-``` client.py
-Assigned rank: 3
-Enter command: Hallo Welt!
+on disconnecting
+
+```
+[Disconnect]  socket ('127.0.0.1', 41378) has disconnected
+[New ranking]
+socket ('127.0.0.1', 33300) has rank number 0
+socket ('127.0.0.1', 33316) has rank number 1
+[Disconnect]  socket ('127.0.0.1', 33316) has disconnected
+[New ranking]
+socket ('127.0.0.1', 33300) has rank number 0
+[Disconnect]  socket ('127.0.0.1', 33300) has disconnected
+[New ranking]
+0 connections
 ```
 
+## Known_issues
+
+
+
+
+## Author
+Bernard Karaba
+bkaraba14@gmail.com
+[portfolio](bkaraba.github.io/portfolio)
 

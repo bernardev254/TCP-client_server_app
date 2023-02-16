@@ -32,34 +32,8 @@ def update_after_disconnect(clients):
        
     return new_dict
     
-
-def handle_client_2(client_socket, client_rank, cmd_queue):
-    while True:
-        # Check if there are any commands in the queue to be processed
-        if not cmd_queue.empty():
-            # Get the next command from the queue
-            cmd = cmd_queue.get()
-            # Check if the rank of the command sender is greater than the client's rank
-            if cmd["sender_rank"] > client_rank:
-                # If so, send the command to the client
-                client_socket.sendall(cmd["data"])
-                # Wait for the client to respond
-                response = client_socket.recv(1024)
-                print(f"Client {client_rank} executed command: {response}")
-            else:
-                print(f"Client {client_rank} tried to execute command from higher rank client {cmd['sender_rank']}")
-
-        # Check if there is any input from the client to be processed
-        try:
-            data = client_socket.recv(1024, socket.MSG_DONTWAIT)
-            # If data was received, process it
-            if data:
-                print(f"Client {client_rank} sent data: {data}")
-        except socket.error:
-            # No data received, continue to next iteration
-            pass
-
 def handle_client(conn, clients_data, clients):
+    global current_clients
     connected = True
     while connected:
         message = conn.recv(1024).decode()
@@ -75,18 +49,21 @@ def handle_client(conn, clients_data, clients):
         
     print("[Disconnect]  socket {} has disconnected".format(conn.getpeername()))
     conn.close()
+    current_clients -= 1
     clients.remove(conn)
     del clients_data[conn]    
     print("[New ranking]")
     clients_data = update_after_disconnect(clients)
-    for sock, rank in clients_data.items():
-        print("socket {} has rank number {}".format(sock.getpeername(), rank))
-
-    for i, c in enumerate(clients):
-        c.send(f'RYour rank is now {i}'.encode())
+    if len(clients) >= 1:
+        for sock, rank in clients_data.items():
+            print("socket {} has rank number {}".format(sock.getpeername(), rank))
+        for i, c in enumerate(clients):
+            c.send(f'RYour rank is now {i}'.encode())
+    else:
+        print("0 connections")        
 
 def start():
-    current_clients = 0
+    global current_clients
     clients = []
     clients_data = {}
 
@@ -123,4 +100,6 @@ def start():
     finally:
         # Close the socket and unbind the port
         server.close()
+
+current_clients = 0
 start()
