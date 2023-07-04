@@ -138,5 +138,5 @@ socket ('127.0.0.1', 33300) has rank number 0
 
 - Bernard Karaba
 - bkaraba14@gmail.com
-- [portfolio](bkaraba.framer.ai)
+- [portfolio](https://bkaraba.framer.ai)
 
